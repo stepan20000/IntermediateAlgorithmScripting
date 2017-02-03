@@ -14,7 +14,9 @@ Compare two arrays and return a new array with any items only found in one of th
 but not both. In other words, return the symmetric difference of the two arrays.
 Completed - DiffTwoArrays.js
 
-Roman Numeral Converter *
+###Roman Numeral Converter
+Convert the given number into a roman numeral.
+Completed - RomanNumeralConverter.js
 
 Wherefore art thou *
 
