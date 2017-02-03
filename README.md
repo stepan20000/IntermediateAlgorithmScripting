@@ -9,7 +9,10 @@ We'll pass you an array of two numbers. Return the sum of those two numbers and 
 The lowest number will not always come first. 
 Completed - SumAllNumbersInARange.js
 
-Diff Two Arrays *
+###Diff Two Arrays
+Compare two arrays and return a new array with any items only found in one of the two given arrays, 
+but not both. In other words, return the symmetric difference of the two arrays.
+Completed - DiffTwoArrays.js
 
 Roman Numeral Converter *
 
