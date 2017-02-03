@@ -4,7 +4,10 @@ Collection of scripts from Free Code Camp's Intermediate Algorithm Scripting Sec
 
 ##Names of scripting challenges:
 
-Sum All Numbers in a Range *
+###Sum All Numbers in a Range
+We'll pass you an array of two numbers. Return the sum of those two numbers and all numbers between them.
+The lowest number will not always come first. 
+Completed - SumAllNumbersInARange.js
 
 Diff Two Arrays *
 
