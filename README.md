@@ -1,10 +1,10 @@
-## IntermediateAlgorithmScripting
+#IntermediateAlgorithmScripting
 
 Collection of scripts from Free Code Camp's Intermediate Algorithm Scripting Section
 
-#Names of scripting challenges:
+##Names of scripting challenges:
 
-Sum All Numbers in a Range 
+Sum All Numbers in a Range *
 
 Diff Two Arrays *
 
