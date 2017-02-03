@@ -6,16 +6,16 @@ Collection of scripts from Free Code Camp's Intermediate Algorithm Scripting Sec
 
 ###Sum All Numbers in a Range
 We'll pass you an array of two numbers. Return the sum of those two numbers and all numbers between them.
-The lowest number will not always come first. 
+The lowest number will not always come first.  
 Completed - SumAllNumbersInARange.js
 
 ###Diff Two Arrays
 Compare two arrays and return a new array with any items only found in one of the two given arrays, 
-but not both. In other words, return the symmetric difference of the two arrays.
+but not both. In other words, return the symmetric difference of the two arrays.  
 Completed - DiffTwoArrays.js
 
 ###Roman Numeral Converter
-Convert the given number into a roman numeral.
+Convert the given number into a roman numeral.  
 Completed - RomanNumeralConverter.js
 
 Wherefore art thou *
