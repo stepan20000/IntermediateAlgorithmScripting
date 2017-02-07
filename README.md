@@ -245,14 +245,35 @@ function uniteUnique(arr) {
 }
 ```
 
-###Convert HTML Entities Incomplete
+###Convert HTML Entities
+Convert the characters &, <, >, " (double quote), and ' (apostrophe), in a string to their corresponding HTML entities.
 ```javascript
-
+function convertHTML(str) {
+	var translate = {
+		'&' : "&amp;",
+		'<' : "&lt;",
+		'>' : "&gt;",
+		'"' : "&quot;",
+		"'" : "&apos;"	
+	};
+	function replacerHTML(match){
+		return translate[match];		
+	}
+  	var re = new RegExp(/(&)|(<)|(>)|(")|(')/,'g'); 
+	return str.replace(re, replacerHTML);
+}
 ```
 
-###Spinal Tap Case Incomplete
+###Spinal Tap Case
+Convert a string to spinal case. Spinal case is all-lowercase-words-joined-by-dashes.
 ```javascript
-
+function spinalCase(str) {
+	function replacerSpinal(match, p1, p2, p3, offset, string) {
+		return p1 + " " + p2;
+	}
+	str = str.replace(/([a-z])([A-Z])/g,replacerSpinal);
+  	return str.toLowerCase().split(/[^A-Za-z0-9]/).join("-");
+}
 ```
 
 ###Sum All Odd Fibonacci Numbers Incomplete
