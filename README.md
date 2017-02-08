@@ -276,29 +276,144 @@ function spinalCase(str) {
 }
 ```
 
-###Sum All Odd Fibonacci Numbers Incomplete
+###Sum All Odd Fibonacci Numbers 
+Given a positive integer num, return the sum of all odd Fibonacci numbers that are less than or equal to num.
+The first two numbers in the Fibonacci sequence are 1 and 1. Every additional number in the sequence is the sum of the two previous numbers. The first six numbers of the Fibonacci sequence are 1, 1, 2, 3, 5 and 8.
+For example, sumFibs(10) should return 10 because all odd Fibonacci numbers less than 10 are 1, 1, 3, and 5.
 ```javascript
-
+function sumFibs(num) {
+	if (num == 1 || num === 0) {
+		return num;	
+	}
+	else {
+		var sum = 1;
+		for(var last = 1, next = 1; next <= num; next = last + next, last = next - last) {
+			if(next % 2 !== 0) {
+				sum = sum + next;			
+			}		
+		}	
+		return sum;
+	}	
+}
 ```
 
-###Sum All Primes Incomplete
+###Sum All Primes
+Sum all the prime numbers up to and including the provided number.
+A prime number is defined as a number greater than one and having only two divisors, one and itself. For example, 2 is a prime number because it's only divisible by one and two.
+The provided number may not be a prime.
+Remember to use Read-Search-Ask if you get stuck. Try to pair program. Write your own code.
 ```javascript
-
+function sumPrimes(num) {
+	if (num === 0 || num == 1) {
+		return undefined;	
+	}
+  	else if(num == 2) {
+  		return num;
+  	}
+  	else {
+// sum is the desired sum
+// To simplify the algorithm set the start sum to 2.
+// primes is the array with the prime numbers, we iterate the odd numbers i = 3, i += 2 (because even number are not prime) 
+// and check if current number is prime
+// and if so we add this number to the primes array. Then use the prime numbers from primes array for checking if a current number 
+// is prime if(i % prime == 0)  
+  		var sum = 2;
+  		var primes = [];
+// No need to divide current number to divider that greater then Math.ceil(Math.sqrt(num)) 
+  		var square = Math.ceil(Math.sqrt(num));
+  		for(var i = 3; i <= num; i += 2)
+  		{
+// if at the end of the second for loop primeFlag is true then we current number is prime and we add this number to the prime array 
+  			var primeFlag = true;
+			for (var prime of primes) {
+				if(prime > square){
+					break;				
+				}
+				else if(i % prime === 0) {
+					primeFlag  = false;
+					break;
+				}
+			}
+			if(primeFlag) {
+				primes.push(i);
+				sum = sum + i;
+			}	
+  		}
+  		return sum; 	
+ 	} 		
+}
 ```
 
-###Smallest Common Multiple Incomplete
+###Smallest Common Multiple
+Find the smallest common multiple of the provided parameters that can be evenly divided by both, as well as by all sequential numbers in the range between these parameters.
+The range will be an array of two numbers that will not necessarily be in numerical order.
+e.g. for 1 and 3 - find the smallest common multiple of both 1 and 3 that is evenly divisible by all numbers between 1 and 3.
 ```javascript
-
+function smallestCommons(arr) {
+	var minNum, maxNum, testCommon;
+	var testArr = [];	
+	var common = 1;
+	var flag = true; 
+//Define the minimum and maximum numbers in a range
+	if (arr[0] < arr[1]) {
+		minNum = arr[0];
+		maxNum = arr[1];
+	}
+	else {
+		minNum = arr[1];
+		maxNum = arr[0];
+	}
+//Make an array with all numbers for which we should find the smallest common multiple  
+	for (let i = minNum, j = 0; i <= maxNum; i++, j++) {
+		testArr[j] = i;
+// remember the number which is definitely a common multiple because it is just a multiple of all numbers
+		common = common * i;
+		if (common >= Number.MAX_SAFE_INTEGER) {
+			return "Error! The multiple of the numbers a great then Number.MAX_SAFE_INTEGER";
+		}
+	}
+// Step by step multiply the max	number and test a result (testCommon % testArr[j] !== 0)  if it is an our require value
+	for (var i = 1, n = common / maxNum; i <= n; i++ ) {
+		flag = true;
+		testCommon = maxNum * i;
+		for (let j = 0, m = testArr.length; j < m; j++) {
+			if (testCommon % testArr[j] !== 0) {
+				flag = false;
+				break;
+			}
+		}
+		if (flag) {
+			return testCommon;
+		}
+	}	
+}
 ```
 
-###Finders Keepers Incomplete
+###Finders Keepers
+Create a function that looks through an array (first argument) and returns the first element in the array that passes a truth test (second argument).
 ```javascript
-
+//This function goes to the end of the array even after first element found. 
+// Nevertheless, I left it as it is because like this shorthand solutions 
+function findElement(arr, func) {	
+  	return arr.filter(func)[0];
+}
 ```
 
-###Drop it Incomplete
+###Drop it
+Drop the elements of an array (first argument), starting from the front, until the predicate (second argument) returns true.
+The second argument, func, is a function you'll use to test the first elements of the array to decide if you should drop it or not.
 ```javascript
-
+function dropElements(arr, func) {
+	for(var i = 0, n = arr.length; i < n; i++){
+		if (func(arr[i])) {
+			break; 
+		}	
+	}
+	for (var j = 0; j <  i; j++) {
+		arr.shift();
+	}
+	return arr;
+}
 ```
 
 ###Steamroller Incomplete
