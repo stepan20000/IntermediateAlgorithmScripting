@@ -416,22 +416,88 @@ function dropElements(arr, func) {
 }
 ```
 
-###Steamroller Incomplete
+###Steamroller 
+Flatten a nested array. You must account for varying levels of nesting.
 ```javascript
-
+function steamrollArray(arr) {
+	var resultArr = [];
+	function recursiveSteamrollArray(arr) {
+		for(var element of arr) {
+			if(Array.isArray(element)) {
+				recursiveSteamrollArray(element);			
+			}
+			else {
+				resultArr.push(element);
+			}	
+		}
+	}
+	recursiveSteamrollArray(arr);
+	return resultArr;
+}
 ```
 
-###Binary Agents Incomplete
+###Binary Agents
+Return an English translated sentence of the passed binary string.
+The binary string will be space separated.
 ```javascript
-
+function binaryAgent(str) {
+	var arr = str.split(" ");
+	for(var index in arr) {
+		arr[index] = parseInt(arr[index], 2);
+	}
+	return String.fromCharCode.apply(null, arr);
+}
 ```
 
-###Everything Be True Incomplete
+###Everything Be True
+Check if the predicate (second argument) is truthy on all elements of a collection (first argument).
+Remember, you can access object properties through either dot notation or [] notation.
 ```javascript
-
+function truthCheck(collection, pre) {
+	for(var element of collection){
+  		if (!element[pre]) {
+  			return false;
+  		}
+  	}
+  	return true;
+}
 ```
 
-###Arguments Optional Incomplete
+###Arguments Optional
+Create a function that sums two arguments together. If only one argument is provided, then return a function that expects one argument and returns the sum.
+For example, addTogether(2, 3) should return 5, and addTogether(2) should return a function.
+Calling this returned function with a single argument will then return the sum:
+var sumTwoAnd = addTogether(2);
+sumTwoAnd(3) returns 5.
+If either argument isn't a valid number, return undefined.
 ```javascript
-
+function addTogether() {
+	if (arguments.length == 2) {
+		if (typeof arguments[0] != "number" || typeof arguments[1] != "number") {
+			return undefined;
+		}
+		else {
+			return arguments[0] + arguments[1]; 
+		}	
+	}
+	else if(arguments.length == 1) {
+		if (typeof arguments[0] != "number") {
+			return undefined;
+		}
+		else {
+			var arg0 = arguments[0];
+			return function (arg1) {
+				if (typeof arg1 == "number") {
+					return arg0 + arg1;	
+				}
+				else {
+					return undefined;	
+				}
+			};
+		}
+	}
+	else {
+		return undefined;
+	}
+}
 ```
